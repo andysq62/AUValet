@@ -65,6 +65,6 @@ $AppServer = Get-AUAppServer -Environment $Environment
          "$environment Path not found when stopping UniData"
       }
 }
-"$Environment $Result" Write-AULog
+"$Environment $Result" | Write-AULog
 
 }     # End Function

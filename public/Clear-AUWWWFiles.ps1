@@ -35,8 +35,8 @@ Invoke-Command -ComputerName (Get-AUAppServer -Environment $Environment) -Creden
    Set-Location $Using:Apphome
    $Udt = Join-Path $env:UDTBIN 'udt'
    Foreach ($PA in ('COUNT.WWW','CLEAR.WWW')) {
-#      & $udt $PA
- start-process udt -WorkingDirectory $Using:Apphome -argumentList $PA -Passthru -WindowStyle Hidden
+      & $udt $PA
+#  start-process udt -WorkingDirectory $Using:Apphome -argumentList $PA -Passthru -WindowStyle Hidden
    }
 }
 }
