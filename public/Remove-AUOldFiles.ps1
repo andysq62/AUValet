@@ -1,6 +1,6 @@
 Function Remove-AUOldFiles
 {
-[CmdletBinding(SupportsShouldProcess)]
+[CmdletBinding()]
 param(
    [parameter(Mandatory,Position=0)]
 [ValidateScript({
@@ -48,6 +48,11 @@ If(Test-Path $SAVEDLISTS)
      Where { $_.Lastwritetime -lt (Get-Date).AddDays(-30) }
    $Files | Sort Lastwritetime | Out-File D:\Scripts\Logs\RemovedSLFiles.log
    $Files | Remove-Item
+}
+
+$UIExportDir = Join-Path $Using:Apphome 'UI.EXPORT.DIR'
+If(Test-Path -Path $UIExportDir) {
+   Get-ChildItem $UIExportDir | Remove-Item
 }
 
 $CommonAppPath = Join-Path $FileTransfers 'A26.AD.COMMON.APP'
