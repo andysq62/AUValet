@@ -52,7 +52,7 @@ If(Test-Path $SAVEDLISTS)
 
 $UIExportDir = Join-Path $Using:Apphome 'UI.EXPORT.DIR'
 If(Test-Path -Path $UIExportDir) {
-   Get-ChildItem $UIExportDir | Remove-Item
+   Get-ChildItem $UIExportDir -Exclude ExcelExport.xlsx | Remove-Item
 }
 
 $CommonAppPath = Join-Path $FileTransfers 'A26.AD.COMMON.APP'
